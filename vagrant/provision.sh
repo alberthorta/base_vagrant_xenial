@@ -14,7 +14,7 @@ sudo -E cp /vagrant/vagrant/.apache.http.conf /etc/apache2/sites-available/vagra
 sudo -E ln -s /etc/apache2/sites-available/vagrant.conf /etc/apache2/sites-enabled/
 sudo -E a2enmod access_compat alias auth_basic authn_core authn_file authz_core authz_host authz_user autoindex deflate dir env expires filter headers mime_prefork negotiation php reqtimeout rewrite setenvif socache_shmcb ssl status
 sudo -E apache2ctl graceful
-sudo -E mysql -u root -Bse "grant all privileges on *.* to '${MYSQL_USER}'@'localhost' identified by '${MYSQL_PASSWORD}'; flush privileges; create database ${MYSQL_DB};"
+sudo -E mysql -u root -Bse "grant all privileges on ${MYSQL_DB}.* to '${MYSQL_USER}'@'localhost' identified by '${MYSQL_PASSWORD}'; flush privileges; create database ${MYSQL_DB};"
 
 if [ "${SERVICE}" = "wordpress" ]
 then

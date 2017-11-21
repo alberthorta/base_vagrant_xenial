@@ -32,5 +32,11 @@ Vagrant.configure("2") do |config|
 end
 
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", path: "./vagrant/provision.sh", env: {"SERVICE" => ENV['SERVICE'], "VERSION" => ENV['VERSION'], "MYSQL_USER" => ENV['MYSQL_USER'], "MYSQL_PASSWORD" => ENV['MYSQL_PASSWORD']}
+  config.vm.provision "shell", path: "./vagrant/provision.sh", env: {
+    "SERVICE" => ENV['SERVICE'],
+    "VERSION" => ENV['VERSION'],
+    "MYSQL_USER" => ENV['MYSQL_USER'],
+    "MYSQL_PASSWORD" => ENV['MYSQL_PASSWORD'],
+    "MYSQL_DB" => ENV['MYSQL_DB']
+  }
 end
