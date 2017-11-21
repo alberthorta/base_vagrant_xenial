@@ -1,5 +1,6 @@
 Vagrant.configure("2") do |config|
     # BASE BOX
+    config.env.enable
     config.vm.box = "ubuntu/xenial64"
     config.vm.boot_timeout = 240
 
@@ -12,8 +13,8 @@ Vagrant.configure("2") do |config|
     config.hostmanager.manage_guest = true
     config.hostmanager.ignore_private_ip = false
     config.hostmanager.include_offline = true
-    config.vm.define 'horta-local' do |node|
-        node.vm.hostname = 'www.horta.local'
+    config.vm.define ENV['VMNAME'] do |node|
+        node.vm.hostname = ENV['HOSTNAME']
         node.vm.network :private_network, type: "dhcp"
         node.hostmanager.aliases = []
     end
@@ -31,5 +32,5 @@ Vagrant.configure("2") do |config|
 end
 
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", path: "./vagrant/provision.sh"
+  config.vm.provision "shell", path: "./vagrant/provision.sh", env: {"SERVICE" => ENV['SERVICE'], "VERSION" => ENV['VERSION'], "MYSQL_USER" => ENV['MYSQL_USER'], "MYSQL_PASSWORD" => ENV['MYSQL_PASSWORD']}
 end
