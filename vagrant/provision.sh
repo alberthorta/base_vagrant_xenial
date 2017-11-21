@@ -22,8 +22,9 @@ then
     echo "Installing Wordpress"
     sudo -E cp /vagrant/vagrant/.composer.json.wordpress /var/www/html/composer.json
     sudo -E cp /vagrant/vagrant/.htaccess.wordpress /var/www/html/.htaccess
+    cp /vagrant/vagrant/.index.php.wordpress /var/www/html/index.php
     sudo -E sed -i -e "s/__HOSTNAME__/${HOSTNAME}/g" /var/www/html/.htaccess
     composer install -d /var/www/html/
-    rm /var/www/html/index.php
+    cp -R /var/www/html/wp/wp-content /var/www/html/
     sudo -E apache2ctl graceful
 fi

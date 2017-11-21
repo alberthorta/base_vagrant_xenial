@@ -1,0 +1,3 @@
+<?php
+define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
+require_once(dirname(__FILE__).'/wp/index.php');
