@@ -23,7 +23,11 @@ then
     sudo -E cp /vagrant/vagrant/.composer.json.wordpress /var/www/html/composer.json
     sudo -E cp /vagrant/vagrant/.htaccess.wordpress /var/www/html/.htaccess
     cp /vagrant/vagrant/.index.php.wordpress /var/www/html/index.php
+    cp /vagrant/vagrant/.wp-config.php.wordpress /var/www/html/wp-config.php
     sudo -E sed -i -e "s/__HOSTNAME__/${HOSTNAME}/g" /var/www/html/.htaccess
+    sudo -E sed -i -e "s/__MYSQL_DB__/${MYSQL_DB}/g" /var/www/html/wp-config.php
+    sudo -E sed -i -e "s/__MYSQL_USER__/${MYSQL_USER}/g" /var/www/html/wp-config.php
+    sudo -E sed -i -e "s/__MYSQL_PASSWORD__/${MYSQL_PASSWORD}/g" /var/www/html/wp-config.php
     composer install -d /var/www/html/
     cp -R /var/www/html/wp/wp-content /var/www/html/
     sudo -E apache2ctl graceful
