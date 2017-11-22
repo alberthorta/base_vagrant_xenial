@@ -43,6 +43,9 @@ then
     #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-all-import.2.0.4.zip" -d /vagrant/html/wp-content/plugins/
     unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-cms-nav.1.4.21.zip" -d /vagrant/html/wp-content/plugins/
     unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-sticky-links.1.4.2.zip" -d /vagrant/html/wp-content/plugins/
+	#INSTALL THEMES
+    unzip -o "/vagrant/vagrant/wordpress_themes/morillas.zip" -d /vagrant/html/wp-content/themes/
+    unzip -o "/vagrant/vagrant/wordpress_themes/morillas-child.zip" -d /vagrant/html/wp-content/themes/
     rm /vagrant/html/wp-content/plugins/hello.php
     sudo -E service apache2 restart
 fi
