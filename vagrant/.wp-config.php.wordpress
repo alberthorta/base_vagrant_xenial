@@ -18,6 +18,7 @@
  * @package WordPress
  */
 
+define( 'WP_MEMORY_LIMIT', '128M' );
 define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
 define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/wp-content/plugins' );
 define( 'WP_PLUGIN_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins' );

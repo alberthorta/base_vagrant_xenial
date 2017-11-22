@@ -4,7 +4,7 @@
 sudo apt-get update
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y upgrade
-sudo -E apt-get -q -y install php php-cli php-common php-curl php-gd php-json php-mcrypt php-mysql php-readline mysql-server mysql-client libapache2-mod-php apache2 redis-server redis-tools build-essential curl vim libfile-pushd-perl git composer unzip php-simplexml
+sudo -E apt-get -q -y install php php-cli php-common php-curl php-gd php-json php-mcrypt php-mysql php-readline mysql-server mysql-client libapache2-mod-php apache2 redis-server redis-tools build-essential curl vim libfile-pushd-perl git composer unzip php-simplexml php-mbstring
 
 sudo -E rm -r /var/www
 sudo -E ln -s /vagrant /var/www
@@ -41,8 +41,8 @@ then
     unzip -o "/vagrant/vagrant/wordpress_plugins/sitepress-multilingual-cms.3.8.4.zip" -d /vagrant/html/wp-content/plugins/
     #unzip -o "/vagrant/vagrant/wordpress_plugins/woocommerce-multilingual.4.2.6.zip" -d /vagrant/html/wp-content/plugins/
     #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-all-import.2.0.4.zip" -d /vagrant/html/wp-content/plugins/
-    #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-cms-nav.1.4.21.zip" -d /vagrant/html/wp-content/plugins/
-    #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-sticky-links.1.4.2.zip" -d /vagrant/html/wp-content/plugins/
+    unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-cms-nav.1.4.21.zip" -d /vagrant/html/wp-content/plugins/
+    unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-sticky-links.1.4.2.zip" -d /vagrant/html/wp-content/plugins/
     rm /vagrant/html/wp-content/plugins/hello.php
     sudo -E apache2ctl graceful
 fi
