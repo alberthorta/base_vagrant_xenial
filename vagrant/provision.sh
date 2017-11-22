@@ -30,5 +30,19 @@ then
     sudo -E sed -i -e "s/__MYSQL_PASSWORD__/${MYSQL_PASSWORD}/g" /var/www/html/wp-config.php
     composer install -d /var/www/html/
     cp -R /var/www/html/wp/wp-content /var/www/html/
+    #INSTALL VISUAL COMPOSER
+    unzip -o /vagrant/vagrant/wordpress_plugins/js_composer.5.4.4.zip -d /vagrant/html/wp-content/plugins/
+    #INSTALL WPML PLUGINS
+    unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-media-translation.2.2.1.zip" -d /vagrant/html/wp-content/plugins/
+    unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-string-translation.2.6.3.zip" -d /vagrant/html/wp-content/plugins/
+    unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-translation-management.2.4.3.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/gravityforms-multilingual.1.3.16.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/acfml.0.6.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/sitepress-multilingual-cms.3.8.4.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/woocommerce-multilingual.4.2.6.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-all-import.2.0.4.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-cms-nav.1.4.21.zip" -d /vagrant/html/wp-content/plugins/
+    #unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-sticky-links.1.4.2.zip" -d /vagrant/html/wp-content/plugins/
+    rm /vagrant/html/wp-content/plugins/hello.php
     sudo -E apache2ctl graceful
 fi
