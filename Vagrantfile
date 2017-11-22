@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
     # BASE BOX
     config.env.enable
-    config.vm.box = "ubuntu/xenial64"
+    config.vm.box = ENV['BOX']
     config.vm.boot_timeout = 240
 
     # Fix issue with jessie64 and vagrant shared
@@ -38,6 +38,8 @@ Vagrant.configure("2") do |config|
     "VERSION" => ENV['VERSION'],
     "MYSQL_USER" => ENV['MYSQL_USER'],
     "MYSQL_PASSWORD" => ENV['MYSQL_PASSWORD'],
-    "MYSQL_DB" => ENV['MYSQL_DB']
+    "MYSQL_DB" => ENV['MYSQL_DB'],
+    "BOX" => ENV['BOX'],
+    "BOX_USER" => ENV['BOX_USER']
   }
 end

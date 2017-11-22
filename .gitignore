@@ -1,3 +1,4 @@
 .vagrant
 .idea
 ubuntu-xenial-*.log
+html/wp/*

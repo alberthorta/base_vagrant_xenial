@@ -8,7 +8,7 @@ sudo -E apt-get -q -y install php php-cli php-common php-curl php-gd php-json ph
 
 sudo -E rm -r /var/www
 sudo -E ln -s /vagrant /var/www
-sudo -E sed -i -e 's/www-data/ubuntu/g' /etc/apache2/envvars
+sudo -E sed -i -e "s/www-data/${BOX_USER}/g" /etc/apache2/envvars
 sudo -E rm /etc/apache2/sites-enabled/*
 sudo -E cp /vagrant/vagrant/.apache.http.conf /etc/apache2/sites-available/vagrant.conf
 sudo -E sed -i -e "s/__HOSTNAME__/${HOSTNAME}/g" /etc/apache2/sites-available/vagrant.conf
@@ -44,5 +44,5 @@ then
     unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-cms-nav.1.4.21.zip" -d /vagrant/html/wp-content/plugins/
     unzip -o "/vagrant/vagrant/wordpress_plugins/wpml-sticky-links.1.4.2.zip" -d /vagrant/html/wp-content/plugins/
     rm /vagrant/html/wp-content/plugins/hello.php
-    sudo -E apache2ctl graceful
+    sudo -E service apache2 restart
 fi
