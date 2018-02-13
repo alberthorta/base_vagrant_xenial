@@ -18,6 +18,8 @@
  * @package WordPress
  */
 
+if($_SERVER['REQUEST_URI']==="/wp/wp-admin/") $_SERVER['REQUEST_URI'] = str_replace("/wp/","/",$_SERVER['REQUEST_URI']);
+
 define( 'WP_MEMORY_LIMIT', '128M' );
 define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
 define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/wp-content/plugins' );
